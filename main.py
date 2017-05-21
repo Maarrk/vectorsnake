@@ -4,10 +4,9 @@
 # VectorSnake by Marek Łukasiewicz
 # https://github.com/Maarrk/vectorsnake
 
-import os
 import vector_snake as vs
 
-dwg = vs.Drawing(200, 200)
+dwg = vs.Drawing(800, 800)
 dwg.set_scale(-2, 2, -1, 3)
 
 # load file output

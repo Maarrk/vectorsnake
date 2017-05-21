@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created with VectorSnake https://github.com/Maarrk/vectorsnake -->
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
   <!-- Coordinate grid: -->
-    <line x1="0.0" y1="200.0" x2="0.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="50.0" y1="200.0" x2="50.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="150.0" y1="200.0" x2="150.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="200.0" y1="200.0" x2="200.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="200.0" x2="200.0" y2="200.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="100.0" x2="200.0" y2="100.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="50.0" x2="200.0" y2="50.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="0.0" x2="200.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="100.0" y1="200.0" x2="100.0" y2="0.0" style="stroke:rgb(63, 63, 63);stroke-width:2" />
-    <line x1="0.0" y1="150.0" x2="200.0" y2="150.0" style="stroke:rgb(63, 63, 63);stroke-width:2" />
+    <line x1="0.0" y1="800.0" x2="0.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="200.0" y1="800.0" x2="200.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="600.0" y1="800.0" x2="600.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="800.0" y1="800.0" x2="800.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0.0" y1="800.0" x2="800.0" y2="800.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0.0" y1="400.0" x2="800.0" y2="400.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0.0" y1="200.0" x2="800.0" y2="200.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0.0" y1="0.0" x2="800.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="400.0" y1="800.0" x2="400.0" y2="0.0" style="stroke:rgb(63, 63, 63);stroke-width:2" />
+    <line x1="0.0" y1="600.0" x2="800.0" y2="600.0" style="stroke:rgb(63, 63, 63);stroke-width:2" />
 
-  <line x1="100.0" y1="150.0" x2="150.0" y2="100.0" style="stroke:rgb(0, 0, 0);stroke-width:2" />
+  <line x1="400.0" y1="600.0" x2="600.0" y2="400.0" style="stroke:rgb(0, 0, 0);stroke-width:2" />
 </svg>

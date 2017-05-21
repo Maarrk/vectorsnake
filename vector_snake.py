@@ -41,12 +41,27 @@ class Drawing:
     bottom = 0
 
     def set_scale(self, x_min, x_max, y_min, y_max):
+        x_min = float(x_min)
+        x_max = float(x_max)
+        y_min = float(y_min)
+        y_max = float(y_max)
+
         if x_min < x_max and y_min < y_max:
             self.scaled = True
-            self.left = x_min
-            self.right = x_max
-            self.bottom = y_min
-            self.top = y_max
+            # PPU on x is bigger
+            if float(self.width) / (x_max - x_min) > float(self.height) / (y_max - y_min):
+                x_center = (x_min + x_max) / 2
+                x_min = x_center + (x_center - x_min) * float(self.height) / (y_max - y_min)
+                x_max = x_center + (x_max - x_center) * float(self.height) / (y_max - y_min)
+            elif float(self.width) / (x_max - x_min) < float(self.height) / (y_max - y_min):
+                y_center = (y_min + y_max) / 2
+                y_min = y_center + (y_center - y_min) * float(self.width) / (y_max - y_min)
+                y_max = y_center + (y_max - y_center) * float(self.width) / (y_max - y_min)
+
+            self.left = int(x_min)
+            self.right = int(x_max)
+            self.bottom = int(y_min)
+            self.top = int(y_max)
         else:
             print 'Wrong scale input'
 
