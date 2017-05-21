@@ -41,27 +41,29 @@ class Drawing:
     bottom = 0
 
     def set_scale(self, x_min, x_max, y_min, y_max):
-        x_min = float(x_min)
-        x_max = float(x_max)
-        y_min = float(y_min)
-        y_max = float(y_max)
-
         if x_min < x_max and y_min < y_max:
             self.scaled = True
-            # PPU on x is bigger
-            if float(self.width) / (x_max - x_min) > float(self.height) / (y_max - y_min):
-                x_center = (x_min + x_max) / 2
-                x_min = x_center + (x_center - x_min) * float(self.height) / (y_max - y_min)
-                x_max = x_center + (x_max - x_center) * float(self.height) / (y_max - y_min)
-            elif float(self.width) / (x_max - x_min) < float(self.height) / (y_max - y_min):
-                y_center = (y_min + y_max) / 2
-                y_min = y_center + (y_center - y_min) * float(self.width) / (y_max - y_min)
-                y_max = y_center + (y_max - y_center) * float(self.width) / (y_max - y_min)
 
-            self.left = int(x_min)
-            self.right = int(x_max)
-            self.bottom = int(y_min)
-            self.top = int(y_max)
+            x_min = float(x_min)
+            x_max = float(x_max)
+            y_min = float(y_min)
+            y_max = float(y_max)
+
+            ppu_x = self.width / (x_max - x_min)
+            ppu_y = self.height / (y_max - y_min)
+
+            if ppu_x < ppu_y:
+                ppu_y = ppu_x
+            else:
+                ppu_x = ppu_y
+
+            x_cen = (x_max + x_min) / 2
+            y_cen = (y_max + y_min) / 2
+
+            self.left = x_cen - self.width / 2 / ppu_x
+            self.right = x_cen + self.width / 2 / ppu_x
+            self.bottom = y_cen - self.height / 2 / ppu_y
+            self.top = y_cen + self.height / 2 / ppu_y
         else:
             print 'Wrong scale input'
 
@@ -81,8 +83,8 @@ class Drawing:
         old_color = self.color
 
         self.color = (191, 191, 191)
-        text += [self.line(x, self.bottom, x, self.top) for x in range(self.left, self.right + 1, 1) if x != 0]
-        text += [self.line(self.left, y, self.right, y) for y in range(self.bottom, self.top + 1, 1) if y != 0]
+        text += [self.line(x, self.bottom, x, self.top) for x in range(int(self.left), int(self.right) + 1, 1) if x != 0]
+        text += [self.line(self.left, y, self.right, y) for y in range(int(self.bottom), int(self.top) + 1, 1) if y != 0]
 
         self.color = (63, 63, 63)
         text += [self.line(0, self.bottom, 0, self.top), self.line(self.left, 0, self.right, 0)]

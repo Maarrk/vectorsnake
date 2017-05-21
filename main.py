@@ -7,7 +7,7 @@
 import vector_snake as vs
 
 dwg = vs.Drawing(800, 800)
-dwg.set_scale(-2, 2, -1, 3)
+dwg.set_scale(-2, 2, -1, 8)
 
 # load file output
 fo = open('output.svg', 'w+')
