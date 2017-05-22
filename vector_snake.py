@@ -17,6 +17,22 @@ def hex(text):
         print 'Wrong hex value'
 
 
+# clamps value between min and max
+def clamp(val, min, max):
+    if min > max:
+        print 'Wrong clamp range'
+        return val
+    elif min == max:
+        return min
+    else:
+        if val < min:
+            return min
+        elif val > max:
+            return max
+        else:
+            return val
+
+
 # handles shapes in coordinate system
 class Drawing:
     def __init__(self, width_init, height_init):
@@ -68,15 +84,35 @@ class Drawing:
             print 'Wrong scale input'
 
     def scaled_x(self, x):
-        return float(x - self.left) / float(self.right - self.left) * self.width
+        if self.scaled:
+            return float(x - self.left) / float(self.right - self.left) * self.width
+        else:
+            return x
 
     def scaled_y(self, y):
-        return self.height - float(y - self.bottom) / float(self.top - self.bottom) * self.height
+        if self.scaled:
+            return self.height - float(y - self.bottom) / float(self.top - self.bottom) * self.height
+        else:
+            return
+
+    def scaled_point(self, point):
+        if self.scaled:
+            return self.scaled_x(point[0]), self.scaled_y(point[1])
+        else:
+            return point
 
     color = (0, 0, 0)
 
     def set_color(self, r, g, b):
-        self.color = (r, g, b)
+        self.color = (clamp(r, 0, 255), clamp(g, 0, 255), clamp(b, 0, 255))
+
+    stroke_width = 2
+
+    def set_stroke(self, px):
+        self.stroke_width = px
+
+    def style(self):
+        return 'style="fill:none;stroke:rgb%s;stroke-width:%d"' % (str(self.color), self.stroke_width)
 
     def draw_grid(self):
         text = ['  <!-- Coordinate grid: -->\n']
@@ -93,13 +129,18 @@ class Drawing:
         return '  '.join(text) + '\n'
 
     def line(self, x1, y1, x2, y2):
-        if self.scaled:
-            x1 = self.scaled_x(x1)
-            x2 = self.scaled_x(x2)
+        x1 = self.scaled_x(x1)
+        x2 = self.scaled_x(x2)
 
-            y1 = self.scaled_y(y1)
-            y2 = self.scaled_y(y2)
+        y1 = self.scaled_y(y1)
+        y2 = self.scaled_y(y2)
 
-        data_str = '  <line x1="%s" y1="%s" x2="%s" y2="%s" ' % (str(x1), str(y1), str(x2), str(y2))
-        style_str = 'style="stroke:rgb%s;stroke-width:2" />\n' % str(self.color)
-        return data_str + style_str
+        data_str = '  <line x1="%d" y1="%d" x2="%d" y2="%d" ' % (x1, y1, x2, y2)
+        return data_str + self.style() + ' />\n'
+
+    def polyline(self, points):
+        scaled_points = [self.scaled_point(point) for point in points]
+
+        point_str = [str(point[0]) + ',' + str(point[1]) for point in scaled_points]
+        data_str = '  <polyline points="' + ' '.join(point_str) + '" '
+        return data_str + self.style() + ' />\n'

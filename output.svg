@@ -3,25 +3,21 @@
 
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="800">
   <!-- Coordinate grid: -->
-    <line x1="44.4444444444" y1="800.0" x2="44.4444444444" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="133.333333333" y1="800.0" x2="133.333333333" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="222.222222222" y1="800.0" x2="222.222222222" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="311.111111111" y1="800.0" x2="311.111111111" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="488.888888889" y1="800.0" x2="488.888888889" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="577.777777778" y1="800.0" x2="577.777777778" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="666.666666667" y1="800.0" x2="666.666666667" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="755.555555556" y1="800.0" x2="755.555555556" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="800.0" x2="800.0" y2="800.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="622.222222222" x2="800.0" y2="622.222222222" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="533.333333333" x2="800.0" y2="533.333333333" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="444.444444444" x2="800.0" y2="444.444444444" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="355.555555556" x2="800.0" y2="355.555555556" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="266.666666667" x2="800.0" y2="266.666666667" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="177.777777778" x2="800.0" y2="177.777777778" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="88.8888888889" x2="800.0" y2="88.8888888889" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="0.0" y1="0.0" x2="800.0" y2="0.0" style="stroke:rgb(191, 191, 191);stroke-width:2" />
-    <line x1="400.0" y1="800.0" x2="400.0" y2="0.0" style="stroke:rgb(63, 63, 63);stroke-width:2" />
-    <line x1="0.0" y1="711.111111111" x2="800.0" y2="711.111111111" style="stroke:rgb(63, 63, 63);stroke-width:2" />
+    <line x1="0" y1="800" x2="0" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="133" y1="800" x2="133" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="266" y1="800" x2="266" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="533" y1="800" x2="533" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="666" y1="800" x2="666" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="800" y1="800" x2="800" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="800" x2="800" y2="800" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="666" x2="800" y2="666" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="533" x2="800" y2="533" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="266" x2="800" y2="266" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="133" x2="800" y2="133" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="0" y1="0" x2="800" y2="0" style="fill:none;stroke:rgb(191, 191, 191);stroke-width:2" />
+    <line x1="400" y1="800" x2="400" y2="0" style="fill:none;stroke:rgb(63, 63, 63);stroke-width:2" />
+    <line x1="0" y1="400" x2="800" y2="400" style="fill:none;stroke:rgb(63, 63, 63);stroke-width:2" />
 
-  <line x1="400.0" y1="711.111111111" x2="488.888888889" y2="622.222222222" style="stroke:rgb(0, 0, 0);stroke-width:2" />
+  <line x1="266" y1="400" x2="666" y2="266" style="fill:none;stroke:rgb(0, 0, 0);stroke-width:2" />
+  <polyline points="266.666666667,400.0 400.0,133.333333333 533.333333333,400.0" style="fill:none;stroke:rgb(0, 255, 255);stroke-width:2" />
 </svg>
