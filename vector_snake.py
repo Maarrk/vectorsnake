@@ -5,8 +5,11 @@
 # https://github.com/Maarrk/vectorsnake
 
 
+import my_math
+
+
 # converts hex to rgb tuple
-def hex(text):
+def hex_color(text):
     color = text.strip('#')
 
     if len(color) == 6:
@@ -15,22 +18,6 @@ def hex(text):
         return tuple(int(color[i], 16) for i in range(3))
     else:
         print 'Wrong hex value'
-
-
-# clamps value between min and max
-def clamp(val, min, max):
-    if min > max:
-        print 'Wrong clamp range'
-        return val
-    elif min == max:
-        return min
-    else:
-        if val < min:
-            return min
-        elif val > max:
-            return max
-        else:
-            return val
 
 
 # handles shapes in coordinate system
@@ -104,7 +91,7 @@ class Drawing:
     color = (0, 0, 0)
 
     def set_color(self, r, g, b):
-        self.color = (clamp(r, 0, 255), clamp(g, 0, 255), clamp(b, 0, 255))
+        self.color = (my_math.clamp(r, 0, 255), my_math.clamp(g, 0, 255), my_math.clamp(b, 0, 255))
 
     stroke_width = 2
 
@@ -119,21 +106,21 @@ class Drawing:
         old_color = self.color
 
         self.color = (191, 191, 191)
-        text += [self.line(x, self.bottom, x, self.top) for x in range(int(self.left), int(self.right) + 1, 1) if x != 0]
-        text += [self.line(self.left, y, self.right, y) for y in range(int(self.bottom), int(self.top) + 1, 1) if y != 0]
+        text += [self.line((x, self.bottom), (x, self.top)) for x in range(int(self.left), int(self.right) + 1, 1) if x != 0]
+        text += [self.line((self.left, y), (self.right, y)) for y in range(int(self.bottom), int(self.top) + 1, 1) if y != 0]
 
         self.color = (63, 63, 63)
-        text += [self.line(0, self.bottom, 0, self.top), self.line(self.left, 0, self.right, 0)]
+        text += [self.line((0, self.bottom), (0, self.top)), self.line((self.left, 0), (self.right, 0))]
 
         self.color = old_color
         return '  '.join(text) + '\n'
 
-    def line(self, x1, y1, x2, y2):
-        x1 = self.scaled_x(x1)
-        x2 = self.scaled_x(x2)
+    def line(self, point1, point2):
+        x1 = self.scaled_x(point1[0])
+        x2 = self.scaled_x(point2[0])
 
-        y1 = self.scaled_y(y1)
-        y2 = self.scaled_y(y2)
+        y1 = self.scaled_y(point1[1])
+        y2 = self.scaled_y(point2[1])
 
         data_str = '  <line x1="%d" y1="%d" x2="%d" y2="%d" ' % (x1, y1, x2, y2)
         return data_str + self.style() + ' />\n'
@@ -143,4 +130,8 @@ class Drawing:
 
         point_str = [str(point[0]) + ',' + str(point[1]) for point in scaled_points]
         data_str = '  <polyline points="' + ' '.join(point_str) + '" '
+        return data_str + self.style() + ' />\n'
+
+    def circle(self, center, radius):
+        data_str = '  <circle cx="%d" cy="%d" r="%d" ' % (center[0], center[1], radius)
         return data_str + self.style() + ' />\n'
